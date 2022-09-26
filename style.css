@@ -1,0 +1,130 @@
+@font-face {
+    font-family: lobster;
+    src: url("./fonts/Lobster-Regular.ttf");
+}
+
+:root {
+    --roomSquareSize: 60px;
+  }
+
+body {
+    display: grid;
+    justify-content: center;
+    background-image: url("./images/background.jpg");
+    color: white;
+    font-family: lobster;
+
+}
+
+.gameScreen {
+    display: grid;
+    grid-template-columns: 430px 250px 1fr 2fr;
+}
+
+.gameInfo {
+    display: grid;
+    grid-column: 2/3;
+}
+
+h3,
+h1 {
+    display: grid;
+    justify-self: center;
+}
+
+h3 {
+    padding: 0 24px;
+}
+
+.mazeArea {
+    display: grid;
+    grid-template-rows: calc(3 * var(--roomSquareSize)) calc(3 * var(--roomSquareSize)) calc(3 * var(--roomSquareSize));
+    grid-template-columns: calc(3 * var(--roomSquareSize)) calc(3 * var(--roomSquareSize)) calc(3 * var(--roomSquareSize));
+    border: 5px solid black;
+    border-radius: 16px;
+}
+
+.restartMaze {
+    margin-top: 12px;
+    width: 250px;
+    font-family: lobster;
+    font-size: 24px;
+    display: grid;
+    justify-self: center;
+    margin-bottom: 24px;
+}
+
+.mazeRoom {
+    background-color: #8D3010;
+    display: grid;
+    grid-template-rows: var(--roomSquareSize) var(--roomSquareSize) var(--roomSquareSize);
+    grid-template-columns: var(--roomSquareSize) var(--roomSquareSize) var(--roomSquareSize);
+    transition: 1s ease;
+    filter: blur(10px) brightness(15%);
+
+}
+
+.mazeWall,
+.mazePassage,
+.player,
+.mazeDoor,
+.exit {
+    height: var(--roomSquareSize);
+    width: var(--roomSquareSize);
+}
+
+.mazeWall {
+    background-image: url(./images/wall.jpg);
+    background-size: 150px;
+}
+
+.mazePassage {
+    background-image: url(./images/floor.jpg);
+    background-size: 150px;
+}
+
+.mazeDoor {
+    background-image: url(./images/doorClosed.jpg);
+    background-size: 150px;
+    position: relative;
+    background-repeat: no-repeat;
+}
+
+.exit {
+    background-image: url(./images/doorOpen.jpg);
+    background-size: 150px;
+    position: relative;
+    background-repeat: no-repeat;
+}
+
+.player {
+    background-image: url(./images/player.jpg);
+}
+
+.roomVisited {
+    filter: blur();
+}
+
+.finishScreen {
+    background-color: white;
+    color: black;
+    display: grid;
+    justify-items: center;
+    width: fit-content;
+    z-index: 1;
+    position: absolute;
+    top: 30%;
+    left: 41.6%;    
+}
+
+.threatScreen {
+    background-color: white;
+    color: black;
+    display: grid;
+    justify-items: center;
+    width: fit-content;
+    z-index: 1;
+    position: absolute;
+    top: 30%;
+    left: 41.6%;    
+}
